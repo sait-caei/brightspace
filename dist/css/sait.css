@@ -73,7 +73,7 @@ table {
 }
 
 th {
-    background-color: #f1f5f9;
+    background-color: #f1f1f1;
     color: #333;
     font-weight: 600;
     padding: 12px;
@@ -160,6 +160,17 @@ a {
 a:hover {
     color: #004a87;
     text-decoration: underline;
+}
+
+a[target="_blank"]::after {
+    content: "\f35d";
+    /* Unicode character for the desired icon (e.g., external-link-alt) */
+    font-family: "Font Awesome 6 Free";
+    /* Or "Font Awesome 6 Solid" etc. */
+    font-weight: 900;
+    /* Required for some Font Awesome icons */
+    margin-left: 5px;
+    vertical-align: middle;
 }
 
 .btn {
