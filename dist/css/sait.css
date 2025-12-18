@@ -1,10 +1,8 @@
 body {
     font-family: "Lato", Arial, sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f9fa;
-    margin: 0;
     padding: 20px;
     max-width: 900px;
     margin: 0 auto;
@@ -12,12 +10,23 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+body.course-intro-body {
+    padding: 0;
+    max-width: none;
+    margin: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
 h1 {
     font-size: 2.1em;
     font-weight: 700;
     margin-bottom: 0.5em;
+    margin-left: 0.29em;
+    margin-right: 0.29em;
     border-bottom: 1px solid #c7c7c7;
     padding-bottom: 5px;
+    color: #4D0B5C;
 }
 
 h2 {
@@ -25,42 +34,55 @@ h2 {
     font-weight: 600;
     margin-top: 0.8em;
     margin-bottom: 0.6em;
+    margin-left: 0.36em;
+    margin-right: 0.36em;
+    color: #A6192E;
 }
 
 h3 {
-    color: #484c52;
+    color: #0C2340;
     font-size: 1.42em;
     font-weight: 600;
     margin-top: .75em;
     margin-bottom: 0.6em;
+    margin-left: 0.42em;
+    margin-right: 0.42em;
 }
 
 h4 {
-    color: #484c52;
+    color: #005EB8;
     font-size: 1.26em;
     font-weight: 600;
     margin-top: 0.8em;
     margin-bottom: 0.5em;
+    margin-left: 0.48em;
+    margin-right: 0.48em;
 }
 
 h5 {
-    color: #484c52;
+    color: #212529;
     font-size: 1.11em;
     font-weight: 600;
     margin-top: 0.7em;
     margin-bottom: 0.4em;
+    margin-left: 0.54em;
+    margin-right: 0.54em;
 }
 
 h6 {
-    color: #484c52;
+    color: #212529;
     font-size: 1.05em;
     font-weight: 600;
     margin-top: 0.6em;
     margin-bottom: 0.4em;
+    margin-left: 0.57em;
+    margin-right: 0.57em;
 }
 
 p {
     margin-bottom: 1.2em;
+    margin-left: 0.6em;
+    margin-right: 0.6em;
     text-align: justify;
 }
 
@@ -103,14 +125,7 @@ iframe {
     border-radius: 4px;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    margin: 1em 0;
-    border: 1px solid #d6d6d6;
-    border-radius: 4px;
-    display: block;
-}
+
 
 .center {
     margin: 1em auto;
@@ -150,6 +165,76 @@ ol ul {
 li {
     margin-bottom: 0.5em;
     line-height: 1.6;
+}
+
+ol.sait-list {
+    list-style: none;
+    counter-reset: sait-counter;
+    padding-left: 0;
+}
+
+ol.sait-list > li {
+    counter-increment: sait-counter;
+    position: relative;
+    padding-left: 4em;
+    margin-bottom: .5em;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+ol.sait-list > li::before {
+    content: counter(sait-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #4D0B5C;
+    background-color: rgba(77, 11, 92, 0.15);
+    border-radius: 50%;
+}
+
+.sait-column-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.sait-column-layout-item-double {
+    padding: 1em;
+    flex: 2;
+}
+
+.sait-column-layout-item-single {
+    flex: 1;
+    padding: 1em;
+}
+
+.sait-figure {
+    border: 1px solid #d6d6d6;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.sait-figure img {
+    width: 100%;
+    height: auto;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+}
+
+.sait-figure-caption {
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
 }
 
 a {
@@ -228,6 +313,94 @@ cite {
     font-size: 0.9em;
     color: #666;
     font-weight: 600;
+    text-align: right;
+}
+
+.callout {
+    display: flex;
+    gap: 15px;
+    margin: 1.5em 0;
+    padding: 1.5em;
+    border-radius: 20px;
+    border-style: dashed;
+}
+
+.callout::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 5em;
+    flex-shrink: 0;
+}
+
+.callout > div {
+    flex: 1;
+}
+
+.callout h3 {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.callout p {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.callout-info {
+    background-color: #e7f3ff;
+    border-color: #457fb9;
+}
+
+.callout-info::before {
+    content: "\f05a";
+    color: #457fb9;
+}
+
+.callout-info h3 {
+    color: #457fb9;
+}
+
+.callout-warning {
+    background-color: #fff8e6;
+    border-color: #e9a848;
+}
+
+.callout-warning::before {
+    content: "\f071";
+    color: #e9a848;
+}
+
+.callout-warning h3 {
+    color: #e9a848;
+}
+
+.callout-success {
+    background-color: #e8f5e9;
+    border-color: #5da16d;
+}
+
+.callout-success::before {
+    content: "\f058";
+    color: #5da16d;
+}
+
+.callout-success h3 {
+    color: #5da16d;
+}
+
+.callout-danger {
+    background-color: #ffebee;
+    border-color: #be555f;
+}
+
+.callout-danger::before {
+    content: "\f06a";
+    color: #be555f;
+}
+
+.callout-danger h3 {
+    color: #be555f;
 }
 
 .land-acknowledgement-bg {
@@ -289,6 +462,135 @@ cite {
     font-weight: 600;
     margin-top: .75em;
     margin-bottom: 0.6em;
+}
+
+.sait-heading {
+    margin: -20px -20px 20px -20px;
+    width: calc(100% + 40px);
+}
+
+.sait-heading-background {
+    position: relative;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 50px 0 50px;
+    margin-bottom: 60px;
+}
+
+.sait-heading-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+}
+
+.sait-heading-background h1 {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    padding: 15px 30px;
+    margin: 0 0 0 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: none;
+    border-radius: 10px;
+    transform: translateY(50%);
+}
+
+.course-intro-background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.course-intro-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.course-intro-content {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+    padding: 20px 30px 30px 30px;
+    max-width: 600px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.course-intro-content h1 {
+    margin: 0 0 20px 0;
+}
+
+.course-intro-content p {
+    text-align: justify;
+}
+
+.code-snippet {
+    position: relative;
+    margin: 1.5em 0;
+    background-color: #f8f9fa;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.code-snippet .copy-btn {
+    font-family: "Lato", Arial, sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    background-color: #595c5e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.code-snippet .copy-btn:hover {
+    background-color: #77797a;
+}
+
+.code-snippet pre {
+    margin: 0;
+    padding: 50px 20px 20px 20px;
+    overflow-x: auto;
+    background-color: #f8f9fa;
+}
+
+.code-snippet code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.code-snippet pre[class*=language-] {
+    margin: 0;
 }
 
 @media (max-width: 768px) {
