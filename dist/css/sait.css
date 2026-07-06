@@ -1,6 +1,16 @@
+/* ==========================================================================
+   SAIT Brightspace NCE Templates - Stylesheet
+   Created by Indika Wijesooriya - SAIT TLC
+    Version: 1.0.3
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. BASE / GLOBAL STYLES
+   -------------------------------------------------------------------------- */
+
 body {
     font-family: "Lato", Arial, sans-serif;
-    font-size: 17px;
+    font-size: 19px;
     line-height: 1.6;
     color: #333;
     padding: 20px;
@@ -17,6 +27,22 @@ body.course-intro-body {
     box-shadow: none;
     overflow: hidden;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, #c7c7c7, transparent);
+    margin: 1.5em 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. TYPOGRAPHY - Headings
+   -------------------------------------------------------------------------- */
 
 h1 {
     font-size: 2.1em;
@@ -36,7 +62,7 @@ h2 {
     margin-bottom: 0.6em;
     margin-left: 0.36em;
     margin-right: 0.36em;
-    color: #A6192E;
+    color: #37148a;
 }
 
 h3 {
@@ -79,12 +105,87 @@ h6 {
     margin-right: 0.57em;
 }
 
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY - Paragraphs & Inline Elements
+   -------------------------------------------------------------------------- */
+
 p {
     margin-bottom: 1.2em;
     margin-left: 0.6em;
     margin-right: 0.6em;
     text-align: justify;
 }
+
+/* --------------------------------------------------------------------------
+   4. LINKS
+   -------------------------------------------------------------------------- */
+
+a {
+    color: #006fbf;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #004a87;
+    text-decoration: underline;
+}
+
+a[target="_blank"]::after {
+    content: "\f35d";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------
+   5. LISTS
+   -------------------------------------------------------------------------- */
+
+ul,
+ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0.5em 0;
+}
+
+li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+/* SAIT numbered list (custom counter) */
+
+ol.sait-list {
+    list-style: none;
+    counter-reset: sait-counter;
+}
+
+ol.sait-list > li {
+    counter-increment: sait-counter;
+    position: relative;
+    margin-bottom: .5em;
+}
+
+ol.sait-list > li::before {
+    content: counter(sait-counter) ".";
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    font-weight: 900;
+    color: #4D0B5C;
+    padding-right: .5em;
+}
+
+/* --------------------------------------------------------------------------
+   6. TABLES
+   -------------------------------------------------------------------------- */
 
 table {
     width: 100%;
@@ -116,6 +217,10 @@ tr:hover {
     background-color: #f1f5f9;
 }
 
+/* --------------------------------------------------------------------------
+   7. IFRAMES
+   -------------------------------------------------------------------------- */
+
 iframe {
     width: 100%;
     max-width: 100%;
@@ -125,7 +230,9 @@ iframe {
     border-radius: 4px;
 }
 
-
+/* --------------------------------------------------------------------------
+   8. IMAGES & FIGURES
+   -------------------------------------------------------------------------- */
 
 .center {
     margin: 1em auto;
@@ -133,87 +240,21 @@ iframe {
     text-align: center;
 }
 
-.img-caption {
+.img-caption-main {
     text-align: center;
-    font-style: italic;
+    font-style: bold;
+    color: #3a3a3a;
+    font-size: 0.7em;
+    margin-top: 0.1em;
+    margin-bottom: 0.0em;
+}
+
+.img-caption-sub {
+    text-align: center;
     color: #666;
-    font-size: 0.9em;
-    margin-top: 0.5em;
+    font-size: 0.6em;
+    margin-top: 0.0em;
     margin-bottom: 1.5em;
-}
-
-hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, #c7c7c7, transparent);
-    margin: 1.5em 0;
-}
-
-ul,
-ol {
-    margin: 1em 0;
-    padding-left: 2em;
-}
-
-ul ul,
-ol ol,
-ul ol,
-ol ul {
-    margin: 0.5em 0;
-}
-
-li {
-    margin-bottom: 0.5em;
-    line-height: 1.6;
-}
-
-ol.sait-list {
-    list-style: none;
-    counter-reset: sait-counter;
-    padding-left: 0;
-}
-
-ol.sait-list > li {
-    counter-increment: sait-counter;
-    position: relative;
-    padding-left: 4em;
-    margin-bottom: .5em;
-    min-height: 3em;
-    display: flex;
-    align-items: center;
-}
-
-ol.sait-list > li::before {
-    content: counter(sait-counter);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2em;
-    height: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #4D0B5C;
-    background-color: rgba(77, 11, 92, 0.15);
-    border-radius: 50%;
-}
-
-.sait-column-layout {
-    display: flex;
-    gap: 20px;
-}
-
-.sait-column-layout-item-double {
-    padding: 1em;
-    flex: 2;
-}
-
-.sait-column-layout-item-single {
-    flex: 1;
-    padding: 1em;
 }
 
 .sait-figure {
@@ -237,26 +278,9 @@ ol.sait-list > li::before {
     margin-top: 10px;
 }
 
-a {
-    color: #006fbf;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #004a87;
-    text-decoration: underline;
-}
-
-a[target="_blank"]::after {
-    content: "\f35d";
-    /* Unicode character for the desired icon (e.g., external-link-alt) */
-    font-family: "Font Awesome 6 Free";
-    /* Or "Font Awesome 6 Solid" etc. */
-    font-weight: 900;
-    /* Required for some Font Awesome icons */
-    margin-left: 5px;
-    vertical-align: middle;
-}
+/* --------------------------------------------------------------------------
+   9. BUTTONS
+   -------------------------------------------------------------------------- */
 
 .btn {
     display: inline-block;
@@ -293,6 +317,10 @@ a[target="_blank"]::after {
     background-color: #545b62;
 }
 
+/* --------------------------------------------------------------------------
+   10. BLOCKQUOTES & CITATIONS
+   -------------------------------------------------------------------------- */
+
 blockquote {
     background-color: #f8f9fa;
     border-left: 4px solid #006fbf;
@@ -315,6 +343,12 @@ cite {
     font-weight: 600;
     text-align: right;
 }
+
+/* --------------------------------------------------------------------------
+   11. CALLOUTS
+   -------------------------------------------------------------------------- */
+
+/* Base callout */
 
 .callout {
     display: flex;
@@ -346,6 +380,8 @@ cite {
     margin-left: 0;
     margin-right: 0;
 }
+
+/* Callout variants */
 
 .callout-info {
     background-color: #e7f3ff;
@@ -403,17 +439,125 @@ cite {
     color: #be555f;
 }
 
-.land-acknowledgement-bg {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* --------------------------------------------------------------------------
+   12. COLUMN LAYOUTS
+   -------------------------------------------------------------------------- */
+
+.sait-column-layout {
+    display: flex;
+    gap: 20px;
+}
+
+.sait-column-layout-item-double {
+    padding: 1em;
+    flex: 2;
+}
+
+.sait-column-layout-item-single {
+    flex: 1;
+    padding: 1em;
+}
+
+/* --------------------------------------------------------------------------
+   13. SAIT HEADING BANNER
+   -------------------------------------------------------------------------- */
+
+.sait-heading {
+    margin: -20px -20px 20px -20px;
+    width: calc(100% + 40px);
+}
+
+.sait-heading-background {
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 50px;
+    background-color: #0C2340;
+    overflow: hidden;
+}
+
+.sait-heading-background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+}
+
+.sait-heading-background::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.sait-heading-background h1 {
+    position: relative;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    z-index: 2;
+    color: white;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-bottom: none;
+    border-radius: 0;
+    transform: none;
+}
+
+.sait-heading-background h2 {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0.3em 0 0 0;
+}
+
+/* Image-only heading (no text overlay) */
+.sait-heading-img {
+    min-height: 0;
+    padding: 0;
+}
+
+.sait-heading-img::before {
+    display: none;
+}
+
+.sait-heading-img img {
+    position: relative;
+    height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   14. LAND ACKNOWLEDGEMENT
+   -------------------------------------------------------------------------- */
+
+.land-acknowledgement-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: -1;
 }
 
@@ -424,7 +568,7 @@ cite {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 70%,transparent 100%);
     pointer-events: none;
 }
 
@@ -445,7 +589,7 @@ cite {
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.left-banner  p {
+.left-banner p {
     color: white;
     font-family: "DM Sans", Open Sans, Arial, sans-serif;
     font-size: 1em;
@@ -464,46 +608,9 @@ cite {
     margin-bottom: 0.6em;
 }
 
-.sait-heading {
-    margin: -20px -20px 20px -20px;
-    width: calc(100% + 40px);
-}
-
-.sait-heading-background {
-    position: relative;
-    height: 200px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 0 50px 0 50px;
-    margin-bottom: 60px;
-}
-
-.sait-heading-background img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    z-index: 0;
-    border: none;
-    margin: 0;
-    border-radius: 0;
-}
-
-.sait-heading-background h1 {
-    position: relative;
-    z-index: 1;
-    background-color: white;
-    padding: 15px 30px;
-    margin: 0 0 0 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    border-bottom: none;
-    border-radius: 10px;
-    transform: translateY(50%);
-}
+/* --------------------------------------------------------------------------
+   15. COURSE INTRO (Full-screen)
+   -------------------------------------------------------------------------- */
 
 .course-intro-background {
     position: relative;
@@ -544,6 +651,10 @@ cite {
 .course-intro-content p {
     text-align: justify;
 }
+
+/* --------------------------------------------------------------------------
+   16. CODE SNIPPETS
+   -------------------------------------------------------------------------- */
 
 .code-snippet {
     position: relative;
@@ -593,44 +704,184 @@ cite {
     margin: 0;
 }
 
+/* ==========================================================================
+   17. RESPONSIVE - Mobile (max-width: 768px)
+   ========================================================================== */
+
 @media (max-width: 768px) {
+
+    /* Base */
     body {
-        padding: 15px;
-        font-size: 13px;
+        padding: 10px;
+        font-size: 19px;
+        box-shadow: none;
     }
 
+    /* Typography */
     h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
+        margin-left: 0.15em;
+        margin-right: 0.15em;
     }
 
     h2 {
-        font-size: 1.4em;
+        font-size: 1.35em;
+        margin-left: 0.2em;
+        margin-right: 0.2em;
     }
 
+    h3 {
+        font-size: 1.2em;
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+    }
+
+    h4 {
+        font-size: 1.1em;
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+    }
+
+    p {
+        margin-left: 0.3em;
+        margin-right: 0.3em;
+        text-align: left;
+    }
+
+    /* Iframes */
     iframe {
         height: 250px;
     }
 
+    /* Tables */
     table {
         font-size: 0.9em;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     th,
     td {
         padding: 8px;
+        white-space: nowrap;
     }
 
+    /* Lists */
+    ul, ol {
+        padding-left: 1.5em;
+    }
+
+    ol.sait-list > li {
+        padding-left: 0;
+    }
+
+    /* Buttons */
     .btn {
         display: block;
         margin: 10px 0;
         text-align: center;
     }
 
-    .land-acknowledgement-bg {
-        padding: 20px 15px;
+    /* Blockquotes */
+    blockquote {
+        padding: 0.8em 1em;
+        margin: 1em 0;
     }
 
-    .land-acknowledgement-bg p {
+    /* Callouts */
+    .callout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1em;
+        border-radius: 12px;
+    }
+
+    .callout::before {
+        font-size: 3em;
+    }
+
+    .callout h3 {
+        text-align: center;
+    }
+
+    .callout p {
+        text-align: left;
+    }
+
+    /* Column layouts */
+    .sait-column-layout {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sait-column-layout-item-double {
+        flex: unset;
+        width: 100%;
+        padding: 0.5em;
+        order: 2;
+    }
+
+    .sait-column-layout-item-single {
+        flex: unset;
+        width: 100%;
+        padding: 0.5em;
+        order: 1;
+    }
+
+    .sait-column-layout .sait-figure {
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    /* SAIT heading banner */
+    .sait-heading {
+        margin: -10px -10px 15px -10px;
+        width: calc(100% + 20px);
+    }
+
+    .sait-heading-background {
+        min-height: 160px;
+        padding: 25px 20px;
+    }
+
+    .sait-heading-background h1 {
+        font-size: 2.5em;
+    }
+
+    .sait-heading-background h2 {
+        font-size: 1.1em;
+    }
+
+    /* Land acknowledgement */
+    .left-banner {
+        padding: 20px;
+        position: relative;
+    }
+
+    .left-banner p {
         max-width: 100%;
+        font-size: 0.9em;
+    }
+
+    /* Course intro */
+    .course-intro-content {
+        max-width: 90%;
+        padding: 15px 20px 20px 20px;
+    }
+
+    .course-intro-content h1 {
+        font-size: 1.4em;
+    }
+
+    /* Code snippets */
+    .code-snippet pre {
+        padding: 45px 10px 15px 10px;
+    }
+
+    .code-snippet .copy-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
     }
 }
